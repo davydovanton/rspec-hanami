@@ -56,12 +56,35 @@ response = action.call(params)
 expect(response).to redirect_to('site.com')
 ```
 
+### Views Specs
+#### `have_action`
+Passes if form object has a action
+
+``` ruby
+expect(view.form).to     have_action('/users')
+expect(view.form).to_not have_action('/books')
+```
+
+#### `have_method`
+Passes if form object has a method
+
+``` ruby
+expect(view.form).to     have_method('POST')
+expect(view.form).to     have_method(:post)
+expect(view.form).to_not have_method(:put)
+```
+
+## TODO
+* Mailer: <http://hanamirb.org/guides/mailers/testing/>
+* router
+
+
 ## Also see
 
-* [https://github.com/rspec/rspec](https://github.com/rspec/rspec)
-* [https://github.com/rspec/rspec-core](https://github.com/rspec/rspec-core)
-* [https://github.com/rspec/rspec-expectations](https://github.com/rspec/rspec-expectations)
-* [https://github.com/rspec/rspec-mocks](https://github.com/rspec/rspec-mocks)
+* <https://github.com/rspec/rspec>
+* <https://github.com/rspec/rspec-core>
+* <https://github.com/rspec/rspec-expectations>
+* <https://github.com/rspec/rspec-mocks>
 
 ## Feature Requests & Bugs
 
