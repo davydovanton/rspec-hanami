@@ -64,6 +64,125 @@ RSpec.describe "have_http_status" do
     end
   end
 
+  describe 'with a redirected number status' do
+    context 'for SuccessfulAction' do
+      let(:action) { SuccessfulAction.new }
+
+      it "return true" do
+        response = action.call(params)
+        expect(response).to_not have_http_status(302)
+      end
+    end
+
+    context 'for FailedAction' do
+      let(:action) { FailedAction.new }
+
+      it "return false" do
+        response = action.call(params)
+        expect(response).to_not have_http_status(302)
+      end
+    end
+
+    context 'for RedirectedAction' do
+      let(:action) { RedirectedAction.new }
+
+      it "return false" do
+        response = action.call(params)
+        expect(response).to have_http_status(302)
+      end
+    end
+  end
+
+  describe 'with a redirected symbol status' do
+    context 'for SuccessfulAction' do
+      let(:action) { SuccessfulAction.new }
+
+      it "return true" do
+        response = action.call(params)
+        expect(response).to_not have_http_status(:redirect)
+      end
+    end
+
+    context 'for FailedAction' do
+      let(:action) { FailedAction.new }
+
+      it 'return true' do
+        response = action.call(params)
+        expect(response).to_not have_http_status(:redirect)
+      end
+    end
+
+    context 'for RedirectedAction' do
+      let(:action) { RedirectedAction.new }
+
+      it "return false" do
+        response = action.call(params)
+        expect(response).to have_http_status(:redirect)
+      end
+    end
+  end
+
+  describe 'with a error number status' do
+    context 'for SuccessfulAction' do
+      let(:action) { SuccessfulAction.new }
+
+      it "return true" do
+        response = action.call(params)
+        expect(response).to_not have_http_status(404)
+      end
+    end
+
+    context 'for FailedAction' do
+      let(:action) { FailedAction.new }
+
+      it "return false" do
+        response = action.call(params)
+        expect(response).to have_http_status(404)
+      end
+    end
+
+    context 'for RedirectedAction' do
+      let(:action) { RedirectedAction.new }
+
+      it "return false" do
+        response = action.call(params)
+        expect(response).to_not have_http_status(404)
+      end
+    end
+  end
+
+  describe 'with a error symbol status' do
+    context 'for SuccessfulAction' do
+      let(:action) { SuccessfulAction.new }
+
+      it "return true" do
+        response = action.call(params)
+        expect(response).to_not have_http_status(:error)
+        expect(response).to_not have_http_status(:missing)
+      end
+    end
+
+    context 'for FailedAction' do
+      let(:action) { FailedAction.new }
+
+      it 'return true' do
+        response = action.call(params)
+        expect(response).to have_http_status(:error)
+        expect(response).to have_http_status(:missing)
+      end
+    end
+
+    context 'for RedirectedAction' do
+      let(:action) { RedirectedAction.new }
+
+      it "return false" do
+        response = action.call(params)
+        expect(response).to_not have_http_status(:error)
+        expect(response).to_not have_http_status(:missing)
+      end
+    end
+  end
+
   describe 'MatchStatus' do
     SUCCESS_STATUSES      = [200, 201, 202, 203, 204]
     ERROR_STATUSES        = [400, 401, 402, 403, 404]
