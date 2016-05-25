@@ -1,15 +1,13 @@
 # RSpec::Hanami
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/rspec/hanami`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+**rspec-rails** is a testing framework for [hanami](http://hanamirb.org)
 
 ## Installation
-
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'rspec-hanami'
+group :test do
+  gem 'rspec-hanami'
+end
 ```
 
 And then execute:
@@ -21,7 +19,8 @@ Or install it yourself as:
     $ gem install rspec-hanami
 
 ## Supported matchers
-### `have_http_status`
+### Controller Specs
+#### `have_http_status`
 Passes if `response` has a matching HTTP status code.
 
 The following symbolic status codes are allowed:
@@ -46,6 +45,17 @@ expect(response).to have_http_status(:redirect)
 - [ ] `expect(action).to be_success`
 - [ ] `expect(response).to render_template("index")`
 - [ ] `expect(response).to redirect_to(widgets_path)`
+
+## Also see
+
+* [https://github.com/rspec/rspec](https://github.com/rspec/rspec)
+* [https://github.com/rspec/rspec-core](https://github.com/rspec/rspec-core)
+* [https://github.com/rspec/rspec-expectations](https://github.com/rspec/rspec-expectations)
+* [https://github.com/rspec/rspec-mocks](https://github.com/rspec/rspec-mocks)
+
+## Feature Requests & Bugs
+
+See <http://github.com/davydovanton/rspec-hanami/issues>
 
 ## License
 
