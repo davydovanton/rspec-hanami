@@ -13,19 +13,19 @@ module RSpec
       # - `:success`
       #
       # @example Accepts numeric and symbol statuses
-      #   responce = action.call(params)
-      #   expect(responce).to have_http_status(404)
-      #   expect(responce).to have_http_status(:created)
-      #   expect(responce).to have_http_status(:success)
-      #   expect(responce).to have_http_status(:error)
-      #   expect(responce).to have_http_status(:missing)
-      #   expect(responce).to have_http_status(:redirect)
+      #   response = action.call(params)
+      #   expect(response).to have_http_status(404)
+      #   expect(response).to have_http_status(:created)
+      #   expect(response).to have_http_status(:success)
+      #   expect(response).to have_http_status(:error)
+      #   expect(response).to have_http_status(:missing)
+      #   expect(response).to have_http_status(:redirect)
       #
       matcher :have_http_status do |status|
         attr_reader :actual
         attr_reader :object
 
-        description { "have responce #{status}" }
+        description { "have response #{status}" }
         match do |object|
           @object = object
           @actual = object.first

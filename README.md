@@ -20,20 +20,32 @@ Or install it yourself as:
 
     $ gem install rspec-hanami
 
-## Usage
+## Supported matchers
+### `have_http_status`
+Passes if `response` has a matching HTTP status code.
 
-TODO: Write usage instructions here
+The following symbolic status codes are allowed:
+  - `:error`
+  - `:missing`
+  - `:redirect`
+  - `:success`
 
-## Development
+``` ruby
+response = action.call(params)
+expect(response).to have_http_status(404)
+expect(response).to have_http_status(:created)
+expect(response).to have_http_status(:success)
+expect(response).to have_http_status(:error)
+expect(response).to have_http_status(:missing)
+expect(response).to have_http_status(:redirect)
+```
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+## TODO
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/rspec-hanami. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
-
+- [ ] `expect(action).to be_success`
+- [ ] `expect(response).to render_template("index")`
+- [ ] `expect(response).to redirect_to(widgets_path)`
+- [ ] support `Rack::Utils::SYMBOL_TO_STATUS_CODE` in `have_http_status`
 
 ## License
 
