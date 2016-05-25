@@ -189,9 +189,6 @@ RSpec.describe "have_http_status" do
     SERVER_ERROR_STATUSES = [500, 501, 502, 503, 502, 503]
     REDIRECTION_STATUSES  = [301, 302, 303, 304]
 
-    describe 'when expecting numeric status' do
-    end
-
     describe 'when expecting symbol status' do
       let(:service) { RSpec::Hanami::Matchers::MatchStatus.new }
 
@@ -244,6 +241,16 @@ RSpec.describe "have_http_status" do
             expect(service.(status, :missing)).to be false
             expect(service.(status, :error)).to be true
           end
+        end
+      end
+    end
+
+    describe 'when expecting rack symbol status' do
+      let(:service) { RSpec::Hanami::Matchers::MatchStatus.new }
+
+      Rack::Utils::SYMBOL_TO_STATUS_CODE.each do |status, code|
+        it "returns true for #{status.inspect} status" do
+          expect(service.(code, status)).to be true
         end
       end
     end

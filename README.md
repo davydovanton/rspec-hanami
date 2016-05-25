@@ -29,6 +29,7 @@ The following symbolic status codes are allowed:
   - `:missing`
   - `:redirect`
   - `:success`
+  - `Rack::Utils::SYMBOL_TO_STATUS_CODE`
 
 ``` ruby
 response = action.call(params)
@@ -45,7 +46,6 @@ expect(response).to have_http_status(:redirect)
 - [ ] `expect(action).to be_success`
 - [ ] `expect(response).to render_template("index")`
 - [ ] `expect(response).to redirect_to(widgets_path)`
-- [ ] support `Rack::Utils::SYMBOL_TO_STATUS_CODE` in `have_http_status`
 
 ## License
 

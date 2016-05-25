@@ -37,13 +37,12 @@ module RSpec
       end
 
       class MatchStatus
-
         def call(actual, expected)
           case expected
           when Numeric
             actual == expected
           when Symbol
-            !!actual.to_s.match(TYPE_CODES[expected])
+            chec_symbol_status(actual, expected)
           else
             false
           end
@@ -57,6 +56,16 @@ module RSpec
           missing: /404/,
           redirect: /3../,
         }.freeze
+
+        def chec_symbol_status(actual, expected)
+          status = TYPE_CODES[expected]
+
+          if status
+            !!actual.to_s.match(status)
+          else
+            actual == Rack::Utils::SYMBOL_TO_STATUS_CODE[expected]
+          end
+        end
       end
     end
   end
