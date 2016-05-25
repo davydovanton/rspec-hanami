@@ -40,6 +40,14 @@ expect(response).to have_http_status(:missing)
 expect(response).to have_http_status(:redirect)
 ```
 
+#### `be_success`
+Passes if `response` has a not 4xx and 5xx error code.
+
+``` ruby
+response = action.call(params)
+expect(response).to be_success
+````
+
 ## TODO
 
 - [ ] `expect(action).to be_success`
