@@ -5,12 +5,12 @@ require 'rspec/hanami/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "rspec-hanami"
-  spec.version       = Rspec::Hanami::VERSION
+  spec.version       = RSpec::Hanami::VERSION
   spec.authors       = ["Anton Davydov"]
   spec.email         = ["antondavydov.o@gmail.com"]
 
-  spec.summary       = %q{Rspec Matchers for Hanami}
-  spec.description   = %q{Rspec Matchers for Hanami}
+  spec.summary       = %q{RSpec Matchers for Hanami}
+  spec.description   = %q{RSpec Matchers for Hanami}
   spec.homepage      = "TODO: Put your gem's website or public repo URL here."
   spec.license       = "MIT"
 
@@ -20,6 +20,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "rspec"
+  spec.add_dependency "hanami"
 
   spec.add_development_dependency "bundler", "~> 1.11"
   spec.add_development_dependency "rake", "~> 10.0"

@@ -1,7 +1,7 @@
-require "rspec/hanami/version"
+require 'rspec/hanami/version'
 
-module Rspec
+module RSpec
   module Hanami
-    autoload :Matchers, "rspec/hanami/matchers"
+    autoload :Matchers, 'rspec/hanami/matchers'
   end
 end
