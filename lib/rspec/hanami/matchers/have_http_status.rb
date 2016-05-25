@@ -22,8 +22,7 @@ module RSpec
       #   expect(response).to have_http_status(:redirect)
       #
       matcher :have_http_status do |status|
-        attr_reader :actual
-        attr_reader :object
+        attr_reader :actual, :object
 
         description { "have response #{status}" }
         match do |object|

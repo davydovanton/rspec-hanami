@@ -11,8 +11,7 @@ module RSpec
       #   expect(response).to be_success
       #
       matcher :be_success do
-        attr_reader :actual
-        attr_reader :object
+        attr_reader :actual, :object
 
         description { "have response success" }
         match do |object|

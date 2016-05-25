@@ -48,11 +48,17 @@ response = action.call(params)
 expect(response).to be_success
 ````
 
+#### `redirect_to`
+Passes if `response` has a redirect to special url
+
+``` ruby
+response = action.call(params)
+expect(response).to redirect_to('site.com')
+```
+
 ## TODO
 
-- [ ] `expect(action).to be_success`
 - [ ] `expect(response).to render_template("index")`
-- [ ] `expect(response).to redirect_to(widgets_path)`
 
 ## Also see
 
