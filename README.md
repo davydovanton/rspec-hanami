@@ -56,10 +56,6 @@ response = action.call(params)
 expect(response).to redirect_to('site.com')
 ```
 
-## TODO
-
-- [ ] `expect(response).to render_template("index")`
-
 ## Also see
 
 * [https://github.com/rspec/rspec](https://github.com/rspec/rspec)
