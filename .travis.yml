@@ -1,4 +1,22 @@
 language: ruby
+sudo: false
+cache: bundler
+install: true
+env:
+  global:
+    - JRUBY_OPTS=--dev
+script:
+  - 'if [[ "$TRAVIS_RUBY_VERSION" =~ "jruby" ]]; then rvm get head && rvm reload && rvm use --install $TRAVIS_RUBY_VERSION && gem install bundler; fi'
+  - 'bundle install'
 rvm:
-  - 2.3.0
-before_install: gem install bundler -v 1.11.2
+  - 2.2.5
+  - 2.3.1
+  - jruby-9.0.5.0
+  - jruby-head
+  - ruby-head
+
+matrix:
+  allow_failures:
+    - rvm: ruby-head
+    - rvm: jruby-head
+    - rvm: jruby-9.0.5.0
