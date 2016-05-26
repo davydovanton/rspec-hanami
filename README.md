@@ -1,5 +1,5 @@
 # RSpec::Hanami
-**rspec-rails** is a testing framework for [hanami](http://hanamirb.org)
+**rspec-hanami** is a testing framework for [hanami](http://hanamirb.org)
 
 ## Installation
 Add this line to your application's Gemfile:
