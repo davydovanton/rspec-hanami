@@ -1,8 +1,11 @@
+require 'hanami/utils/hash'
+
 module RSpec
   module Hanami
     class FormParser
       def call(html)
-        select_inputs(html).map { |input| input_data_hash(input) }
+        meta_list = select_inputs(html).map! { |input| input_data_hash(input) }
+        meta_list.map! { |hash| ::Hanami::Utils::Hash.new(hash).symbolize! }
       end
 
     private
@@ -22,7 +25,7 @@ module RSpec
             .tr('>', '')
             .prepend('node=')
             .split(' ')
-            .map{ |key_value| key_value.tr('"', '').split('=') }
+            .map! { |key_value| key_value.tr('"', '').split('=') }
         ]
       end
     end

@@ -74,6 +74,13 @@ expect(view.form).to     have_method(:post)
 expect(view.form).to_not have_method(:put)
 ```
 
+#### `have_field`
+Passes if form object has a field with wanted params
+
+``` ruby
+expect(view.form).to have_field(node: input, type: 'text', id: 'user-first-name')
+```
+
 ## TODO
 * Mailer: <http://hanamirb.org/guides/mailers/testing/>
 * router

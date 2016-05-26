@@ -17,9 +17,9 @@ RSpec.describe RSpec::Hanami::FormParser do
     it 'parses form html string to inputs hash list' do
       result = parser.(form_html_string)
       expect(result.count).to eq 4
-      expect(result.first).to eq({"node"=>"input", "type"=>"text", "id"=>"user-first-name", "name"=>"user[first_name]", "value"=>"L"})
-      expect(result.map{ |i| i['node'] }).to eq(%w[input input input textarea])
-      expect(result.map{ |i| i['type'] }).to eq(%w[text hidden checkbox nil])
+      expect(result.first).to eq(node: "input", type: "text", id: "user-first-name", name: "user[first_name]", value: "L")
+      expect(result.map{ |i| i[:node] }).to eq(%w[input input input textarea])
+      expect(result.map{ |i| i[:type] }).to eq(['text', 'hidden', 'checkbox', nil])
     end
   end
 end

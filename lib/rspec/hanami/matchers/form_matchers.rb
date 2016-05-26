@@ -44,6 +44,32 @@ module RSpec
         failure_message { |actual| "expect #{form.inspect} (#{attributes}) to have #{method} method param" }
         diffable
       end
+
+      # @api public
+      # Passes if form object has a field with wanted params
+      #
+      # @example Accepts numeric and symbol statuses
+      #
+      #   expect(view.form).to have_field(node: input, type: 'text', id: 'user-first-name')
+      #
+      matcher :have_field do |params|
+        require 'hanami/utils/hash'
+        attr_reader :form, :form_data, :params
+
+        description { "have field with params" }
+        match do |form|
+          @form = form
+          @params = ::Hanami::Utils::Hash.new(@params).symbolize!
+          @form_data = RSpec::Hanami::FormParser.new.call(form.to_s)
+
+          form_data.any? do |input|
+            input.merge(params) == params.merge(input)
+          end
+        end
+
+        failure_message { |actual| "expect #{form.inspect} (#{attributes}) to have #{method} method param" }
+        diffable
+      end
     end
   end
 end
