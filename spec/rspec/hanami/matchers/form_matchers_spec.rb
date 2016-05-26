@@ -35,4 +35,20 @@ RSpec.describe 'form matchers' do
       end
     end
   end
+
+  describe '#have_method' do
+    context 'for form with right method' do
+      it 'return true' do
+        expect(view.form).to have_method('POST')
+        expect(view.form).to have_method(:post)
+      end
+    end
+
+    context 'for form with other method' do
+      it 'return false' do
+        expect(view.form).to_not have_method('PUT')
+        expect(view.form).to_not have_method(:put)
+      end
+    end
+  end
 end
