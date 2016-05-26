@@ -81,11 +81,6 @@ Passes if form object has a field with wanted params
 expect(view.form).to have_field(node: input, type: 'text', id: 'user-first-name')
 ```
 
-## TODO
-* Mailer: <http://hanamirb.org/guides/mailers/testing/>
-* router
-
-
 ## Also see
 
 * <https://github.com/rspec/rspec>
