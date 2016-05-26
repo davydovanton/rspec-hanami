@@ -1,4 +1,7 @@
 # RSpec::Hanami
+
+[![Build Status](https://travis-ci.org/davydovanton/rspec-hanami.svg?branch=master)](https://travis-ci.org/davydovanton/rspec-hanami)
+
 **rspec-hanami** is a testing framework for [hanami](http://hanamirb.org)
 
 ## Installation
