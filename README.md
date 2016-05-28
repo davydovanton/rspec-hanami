@@ -1,6 +1,6 @@
 # RSpec::Hanami
 
-[![Build Status](https://travis-ci.org/davydovanton/rspec-hanami.svg?branch=master)](https://travis-ci.org/davydovanton/rspec-hanami)
+[![Build Status](https://travis-ci.org/davydovanton/rspec-hanami.svg?branch=master)](https://travis-ci.org/davydovanton/rspec-hanami) [![Coverage Status](https://coveralls.io/repos/github/davydovanton/rspec-hanami/badge.svg?branch=master)](https://coveralls.io/github/davydovanton/rspec-hanami?branch=master)
 
 **rspec-hanami** is a testing framework for [hanami](http://hanamirb.org)
 
