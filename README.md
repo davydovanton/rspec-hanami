@@ -21,6 +21,18 @@ Or install it yourself as:
 
     $ gem install rspec-hanami
 
+After that require gem to `spec_helper.rb` and include matchers to rspec:
+
+```ruby
+require 'rspec/hanami'
+
+RSpec.configure do |config|
+  config.include RSpec::Hanami::Matchers
+
+  # ...
+end
+```
+
 ## Supported matchers
 ### Controller Specs
 #### `have_http_status`
