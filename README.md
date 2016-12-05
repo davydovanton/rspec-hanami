@@ -71,6 +71,15 @@ response = action.call(params)
 expect(response).to redirect_to('site.com')
 ```
 
+#### `match_in_body`
+Passes if `body` match with argument
+
+``` ruby
+response = action.call(params)
+expect(response).to match_in_body('Tittle')
+expect(response).to match_in_body(/Tittle\s\d+/)
+```
+
 ### Views Specs
 #### `have_action`
 Passes if form object has a action

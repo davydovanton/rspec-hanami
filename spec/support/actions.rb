@@ -5,7 +5,7 @@ class SuccessfulAction
 
   def call(params)
     self.status  = 200
-    self.body    = 'Hi!'
+    self.body    = "Hi! It's successful"
   end
 end
 
@@ -14,7 +14,7 @@ class FailedAction
 
   def call(params)
     self.status  = 404
-    self.body    = 'Hi!'
+    self.body    = "Hi! It's failed"
   end
 end
 
