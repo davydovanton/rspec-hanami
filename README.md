@@ -33,6 +33,24 @@ RSpec.configure do |config|
 end
 ```
 
+### Capybara
+Check your `spec/features_helper.rb` and `spec/support/Capybara.rb` files. If you find something like this:
+
+```ruby
+Capybara.app = Hanami::Container.new
+# or
+Capybara.app = Hanami::App.new
+```
+
+Please change this line to:
+```
+Capybara.app = ::Hanami::Container.new
+# or
+Capybara.app = ::Hanami::App.new
+```
+
+For more information see [this issue](https://github.com/davydovanton/rspec-hanami/issues/1)
+
 ## Supported matchers
 ### Controller Specs
 #### `have_http_status`
