@@ -52,6 +52,22 @@ Capybara.app = ::Hanami::App.new
 For more information see [this issue](https://github.com/davydovanton/rspec-hanami/issues/1)
 
 ## Supported matchers
+### Request helpers
+You can use familiar request helpers like `#get`, `#post`, etc.
+This methods make full hanami app request and retutn env (array with 3 elements).
+
+For using this helpers include `RSpec::Hanami::RequestHelpers` to your `spec_helper.rb' file:
+
+```ruby
+config.include RSpec::Hanami::RequestHelpers
+```
+
+After that you can call any method:
+```ruby
+it { expect(get('/')).to be_success }
+it { expect(post('/tasks')).to redirect_to('/tasks') }
+```
+
 ### Controller Specs
 #### `have_http_status`
 Passes if `response` has a matching HTTP status code.
