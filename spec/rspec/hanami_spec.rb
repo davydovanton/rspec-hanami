@@ -17,6 +17,10 @@ RSpec.describe "RSpec::Hanami" do
   end
 
   it "has no malformed whitespace", :slow do
+    puts
+    puts '*' * 80
+    puts RUBY_VERSION
+    puts '*' * 80
     error_messages = []
     `git ls-files -z`.split("\x0").each do |filename|
       error_messages << check_for_tab_characters(filename)
