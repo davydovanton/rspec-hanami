@@ -54,9 +54,9 @@ For more information see [this issue](https://github.com/davydovanton/rspec-hana
 ## Supported matchers
 ### Request helpers
 You can use familiar request helpers like `#get`, `#post`, etc.
-This methods make full hanami app request and retutn env (array with 3 elements).
+These methods make full hanami app request and return env (array with 3 elements).
 
-For using this helpers include `RSpec::Hanami::RequestHelpers` to your `spec_helper.rb' file:
+For using these helpers include `RSpec::Hanami::RequestHelpers` to your `spec_helper.rb` file:
 
 ```ruby
 config.include RSpec::Hanami::RequestHelpers
@@ -106,7 +106,7 @@ expect(response).to redirect_to('site.com')
 ```
 
 #### `match_in_body`
-Passes if `body` match with argument
+Passes if `body` matches with argument
 
 ``` ruby
 response = action.call(params)
@@ -116,7 +116,7 @@ expect(response).to match_in_body(/Tittle\s\d+/)
 
 ### Views Specs
 #### `have_action`
-Passes if form object has a action
+Passes if form object has an action
 
 ``` ruby
 expect(view.form).to     have_action('/users')
