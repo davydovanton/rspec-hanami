@@ -43,7 +43,7 @@ Capybara.app = Hanami::App.new
 ```
 
 Please change this line to:
-```
+```ruby
 Capybara.app = ::Hanami::Container.new
 # or
 Capybara.app = ::Hanami::App.new
