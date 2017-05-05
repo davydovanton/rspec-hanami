@@ -11,8 +11,8 @@ module RSpec
 
         def env
           default_env.tap do |env|
-            env['PATH_INFO']      = @path,
-            env['REQUEST_METHOD'] = @method,
+            env['PATH_INFO']      = @path
+            env['REQUEST_METHOD'] = @method
             env['QUERY_STRING']   = "?#{@query_string}"
             env['rack.input']     = StringIO.new(@params.to_json) if @params
 
