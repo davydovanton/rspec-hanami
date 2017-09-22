@@ -6,7 +6,7 @@ class MainView
   include Hanami::Helpers::FormHelper
 
   def params
-    Hanami::Action::Params.new({})
+    {}
   end
 
   def form
