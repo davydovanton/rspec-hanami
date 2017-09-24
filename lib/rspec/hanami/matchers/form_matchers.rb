@@ -59,7 +59,7 @@ module RSpec
         description { "have field with params" }
         match do |form|
           @form = form
-          @params = ::Hanami::Utils::Hash.new(@params).symbolize!
+          @params = ::Hanami::Utils::Hash.new(params).symbolize!
           @form_data = RSpec::Hanami::FormParser.new.call(form.to_s)
 
           form_data.any? do |input|
