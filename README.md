@@ -139,6 +139,24 @@ Passes if form object has a field with wanted params
 expect(view.form).to have_field(node: input, type: 'text', id: 'user-first-name')
 ```
 
+### Entity specs
+Passes if argument type has a matching with type.
+You can use `Hanami::Entity::Types` for compare.
+
+#### `have_attribute`
+Passes if `:name` has `Types::String` type:
+
+``` ruby
+it { expect(User).to have_attribute(:name, Types::String) }
+```
+
+#### `have_attributes`
+Passes if `:name` has `Types::String` type and `:age` has `Types::Int` type:
+
+``` ruby
+it { expect(User).to have_attributes(name: Types::String, age: Types::Int) }
+```
+
 ## Also see
 
 * <https://github.com/rspec/rspec>
