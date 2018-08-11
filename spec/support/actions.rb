@@ -1,3 +1,4 @@
+require 'json'
 require 'hanami-controller'
 
 class SuccessfulAction
@@ -25,3 +26,13 @@ class RedirectedAction
     redirect_to 'http://example.com/'
   end
 end
+
+class JsonAction
+  include Hanami::Action
+
+  def call(params)
+    self.status  = 200
+    self.body    = JSON.generate(user: { name: 'Anton' })
+  end
+end
+
