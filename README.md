@@ -114,6 +114,15 @@ expect(response).to match_in_body('Tittle')
 expect(response).to match_in_body(/Tittle\s\d+/)
 ```
 
+#### `include_json`
+Passes if `json` string in the body matches with hash arg
+
+``` ruby
+response = action.call(params)
+expect(response).to include_json(name: 'Anton')
+expect(response).to include_json(user: { name: 'Anton })
+```
+
 ### Views Specs
 #### `have_action`
 Passes if form object has an action

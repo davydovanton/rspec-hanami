@@ -9,6 +9,7 @@ require 'rspec/hanami/matchers/be_status'
 require 'rspec/hanami/matchers/form_matchers'
 require 'rspec/hanami/matchers/redirect_to'
 require 'rspec/hanami/matchers/match_entity_schema'
+require 'rspec/hanami/matchers/include_json'
 
 module RSpec
   module Hanami
