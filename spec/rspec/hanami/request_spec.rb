@@ -23,7 +23,8 @@ RSpec.describe RSpec::Hanami::RequestHelpers::Request do
 
     it "returns hash for options" do
       request = RSpec::Hanami::RequestHelpers::Request.new("GET", "", options).env
-      expect(request["HTTP_CONTENT_TYPE"]).to eq "application/json"
+      expect(request["CONTENT_TYPE"]).to eq "application/json"
+      expect(request["HTTP_CONTENT_TYPE"]).to be_nil
       expect(request["HTTP_AUTH"]).to eq "whatever"
       expect(request["rack.input"].string).to eq params.to_json
     end

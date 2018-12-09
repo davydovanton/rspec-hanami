@@ -20,6 +20,9 @@ module RSpec
               rack_name = key.to_s.upcase.tr('-', '_')
               env["HTTP_#{rack_name}"] = value
             end
+            if env.key?("HTTP_CONTENT_TYPE")
+              env["CONTENT_TYPE"] = env.delete("HTTP_CONTENT_TYPE")
+            end
           end
         end
 
