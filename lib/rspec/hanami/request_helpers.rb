@@ -14,7 +14,11 @@ module RSpec
             env['PATH_INFO']      = @path
             env['REQUEST_METHOD'] = @method
             env['QUERY_STRING']   = "?#{@query_string}"
+            # TODO: Doesn't work correctly
+            # Need to use something like this:
+            #   ::Rack::Lint::InputWrapper.new(StringIO.new(params.env['rack.input'].read))
             env['rack.input']     = StringIO.new(@params.to_json) if @params
+            # also, we need to use rack-test here instead self written stuff
 
             @headers.each do |key, value|
               rack_name = key.to_s.upcase.tr('-', '_')
