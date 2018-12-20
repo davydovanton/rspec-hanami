@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "rspec"
-  spec.add_dependency "hanami"
+  spec.add_dependency "hanami", "~> 1.0"
   spec.add_dependency "hanami-model"
 
   spec.add_development_dependency "bundler", "~> 1.11"
