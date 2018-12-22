@@ -1,9 +1,6 @@
 require 'spec_helper'
-require 'rspec/hanami/matchers'
 
-RSpec.describe "have_http_status" do
-  include RSpec::Hanami::Matchers
-
+RSpec.describe "have_http_status", type: :request do
   let(:params) { {} }
 
   describe 'with a successful number status' do

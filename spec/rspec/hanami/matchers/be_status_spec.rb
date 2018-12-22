@@ -1,9 +1,6 @@
 require 'spec_helper'
-require 'rspec/hanami/matchers'
 
-RSpec.describe "be matchers" do
-  include RSpec::Hanami::Matchers
-
+RSpec.describe "be matchers", type: :request do
   let(:params) { {} }
 
   describe '#be_success' do

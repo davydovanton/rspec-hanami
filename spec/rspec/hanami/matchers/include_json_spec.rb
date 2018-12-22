@@ -1,9 +1,6 @@
 require 'spec_helper'
-require 'rspec/hanami/matchers'
 
-RSpec.describe "include_json" do
-  include RSpec::Hanami::Matchers
-
+RSpec.describe "include_json", type: :request do
   let(:params) { {} }
 
   context 'for JsonAction' do

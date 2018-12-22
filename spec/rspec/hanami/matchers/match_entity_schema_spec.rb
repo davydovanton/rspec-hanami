@@ -1,9 +1,6 @@
 require 'spec_helper'
-require 'rspec/hanami/matchers'
 
-RSpec.describe 'match_entity_schema' do
-  include RSpec::Hanami::Matchers
-
+RSpec.describe 'match_entity_schema', type: :request do
   let(:entity) { UserEntity.new(id: 1, name: 'whatever', gender: true) }
 
   describe 'pass with success' do
