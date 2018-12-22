@@ -21,8 +21,8 @@ module RSpec
 
         match do |object|
           @object = object
-          @actual = object.last.last
-          actual == JSON.generate(json_object)
+          @actual = JSON.parse(object.last.last, symbolize_names: true)
+          actual == json_object
         end
 
         failure_message { |actual| "expect #{object} to include #{json_object} json" }
