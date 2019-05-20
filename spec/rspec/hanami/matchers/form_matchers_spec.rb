@@ -6,16 +6,16 @@ RSpec.describe 'form matchers' do
 
   let(:view) { MainView.new }
 
-  describe '#have_action' do
+  describe '#have_form_action' do
     context 'for form with right action' do
       it 'return true' do
-        expect(view.form).to have_action('/users')
+        expect(view.form).to have_form_action('/users')
       end
     end
 
     context 'for form with other action' do
       it 'return false' do
-        expect(view.form).to_not have_action('/books')
+        expect(view.form).to_not have_form_action('/books')
       end
     end
   end
@@ -52,16 +52,16 @@ RSpec.describe 'form matchers' do
     end
   end
 
-  describe '#have_field' do
+  describe '#have_form_field' do
     context 'for form with right field' do
       it 'return true' do
-        expect(view.form).to have_field(node: 'input', type: 'text', id: 'user-first-name')
+        expect(view.form).to have_form_field(node: 'input', type: 'text', id: 'user-first-name')
       end
     end
 
     context 'for form with invalid field' do
       it 'return false' do
-        expect(view.form).to_not have_field(node: 'input', type: 'hidden', value: '100')
+        expect(view.form).to_not have_form_field(node: 'input', type: 'hidden', value: '100')
       end
     end
   end

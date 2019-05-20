@@ -124,12 +124,12 @@ expect(response).to include_json(user: { name: 'Anton })
 ```
 
 ### Views Specs
-#### `have_action`
+#### `have_form_action`
 Passes if form object has an action
 
 ``` ruby
-expect(view.form).to     have_action('/users')
-expect(view.form).to_not have_action('/books')
+expect(view.form).to     have_form_action('/users')
+expect(view.form).to_not have_form_action('/books')
 ```
 
 #### `have_method`
@@ -141,11 +141,11 @@ expect(view.form).to     have_method(:post)
 expect(view.form).to_not have_method(:put)
 ```
 
-#### `have_field`
+#### `have_form_field`
 Passes if form object has a field with wanted params
 
 ``` ruby
-expect(view.form).to have_field(node: input, type: 'text', id: 'user-first-name')
+expect(view.form).to have_form_field(node: input, type: 'text', id: 'user-first-name')
 ```
 
 ### Entity specs
@@ -180,4 +180,3 @@ See <http://github.com/davydovanton/rspec-hanami/issues>
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
