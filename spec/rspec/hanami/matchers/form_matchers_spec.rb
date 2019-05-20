@@ -65,4 +65,10 @@ RSpec.describe 'form matchers' do
       end
     end
   end
+
+  describe 'aliases' do
+    it { expect(method(:have_form_action).original_name).to eq(:have_action) }
+    it { expect(method(:have_form_method).original_name).to eq(:have_method) }
+    it { expect(method(:have_form_field).original_name).to eq(:have_field) }
+  end
 end

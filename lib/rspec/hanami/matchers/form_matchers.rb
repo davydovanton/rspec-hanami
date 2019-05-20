@@ -4,21 +4,6 @@ module RSpec
       extend ::RSpec::Matchers::DSL
 
       # @api public
-      # Alias for: have_action
-      #
-      alias_matcher :have_form_action, :have_action
-
-      # @api public
-      # Alias for: have_method
-      #
-      alias_matcher :have_form_method, :have_method
-
-      # @api public
-      # Alias for: have_field
-      #
-      alias_matcher :have_form_field, :have_field
-
-      # @api public
       # Passes if form object has a action
       #
       # @example Accepts numeric and symbol statuses
@@ -85,6 +70,21 @@ module RSpec
         failure_message { |actual| "expect #{form.inspect} (#{attributes}) to have #{method} method param" }
         diffable
       end
+
+      # @api public
+      # Alias for: have_action
+      #
+      alias have_form_action have_action
+
+      # @api public
+      # Alias for: have_method
+      #
+      alias have_form_method have_method
+
+      # @api public
+      # Alias for: have_field
+      #
+      alias have_form_field have_field
     end
   end
 end
