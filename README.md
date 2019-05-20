@@ -145,7 +145,7 @@ expect(view.form).to_not have_method(:put)
 Passes if form object has a field with wanted params
 
 ``` ruby
-expect(view.form).to have_form_field(node: input, type: 'text', id: 'user-first-name')
+expect(view.form).to have_form_field(node: 'input', type: 'text', id: 'user-first-name')
 ```
 
 ### Entity specs
