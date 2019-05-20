@@ -50,7 +50,7 @@ module RSpec
       #
       # @example Accepts numeric and symbol statuses
       #
-      #   expect(view.form).to have_field(node: input, type: 'text', id: 'user-first-name')
+      #   expect(view.form).to have_field(node: 'input', type: 'text', id: 'user-first-name')
       #
       matcher :have_field do |params|
         require 'hanami/utils/hash'
