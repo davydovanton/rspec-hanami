@@ -50,7 +50,7 @@ module RSpec
       #
       # @example Accepts numeric and symbol statuses
       #
-      #   expect(view.form).to have_field(node: input, type: 'text', id: 'user-first-name')
+      #   expect(view.form).to have_field(node: 'input', type: 'text', id: 'user-first-name')
       #
       matcher :have_field do |params|
         require 'hanami/utils/hash'
@@ -70,6 +70,21 @@ module RSpec
         failure_message { |actual| "expect #{form.inspect} (#{attributes}) to have #{method} method param" }
         diffable
       end
+
+      # @api public
+      # Alias for: have_action
+      #
+      alias have_form_action have_action
+
+      # @api public
+      # Alias for: have_method
+      #
+      alias have_form_method have_method
+
+      # @api public
+      # Alias for: have_field
+      #
+      alias have_form_field have_field
     end
   end
 end
