@@ -11,7 +11,7 @@ module RSpec
     private
 
       def select_inputs(html)
-        html.scan(/<input.+>|<textarea[^<]+>/)
+        html.scan(/<button[^<]+>|<label[^<]+>|<select[^<]+>|<option[^<]+>|<datalist[^<]+>|<form[^<]+>|<input[^<]+>|<textarea[^<]+>/)
       end
 
       def input_data_hash(input)

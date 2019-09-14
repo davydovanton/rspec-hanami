@@ -1,6 +1,7 @@
 require 'rspec/core/warnings'
 require 'rspec/expectations'
 require 'rspec/hanami/form_parser'
+require 'rspec/hanami/form_presenter'
 require 'rspec/hanami/match_status'
 require 'rspec/hanami/match_type'
 require 'rspec/hanami/matchers/have_http_status'
