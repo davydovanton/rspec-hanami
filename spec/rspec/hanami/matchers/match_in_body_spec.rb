@@ -1,9 +1,6 @@
 require 'spec_helper'
-require 'rspec/hanami/matchers'
 
-RSpec.describe 'match_in_body' do
-  include RSpec::Hanami::Matchers
-
+RSpec.describe 'match_in_body', type: :request do
   let(:params) { {} }
 
   context 'for SuccessfulAction' do

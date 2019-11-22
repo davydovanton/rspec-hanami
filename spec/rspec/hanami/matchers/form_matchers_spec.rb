@@ -1,9 +1,6 @@
 require 'spec_helper'
-require 'rspec/hanami/matchers'
 
-RSpec.describe 'form matchers' do
-  include RSpec::Hanami::Matchers
-
+RSpec.describe 'form matchers', type: :request do
   let(:view) { MainView.new }
 
   describe '#have_form_action' do

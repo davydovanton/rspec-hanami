@@ -21,14 +21,12 @@ Or install it yourself as:
 
     $ gem install rspec-hanami
 
-After that require gem to `spec_helper.rb` and include matchers to rspec:
+After that set the spec-type in your files for request specs:
 
 ```ruby
-require 'rspec/hanami'
+require 'spec_helper'
 
-RSpec.configure do |config|
-  config.include RSpec::Hanami::Matchers
-
+describe "GET /any/path", type: :request do
   # ...
 end
 ```
