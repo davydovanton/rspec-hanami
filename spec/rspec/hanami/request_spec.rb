@@ -5,6 +5,7 @@ RSpec.describe RSpec::Hanami::RequestHelpers::Request do
   describe '#env' do
     [['GET',    '/',         {}],
      ['POST',   '/users',    {}],
+     ['OPTIONS', '/users',    {}],
      ['PATCH',  '/posts',    {}],
      ['PUT',    '/comments', {}],
      ['DELETE', '/tags',     {}]].each do |method, path, options|

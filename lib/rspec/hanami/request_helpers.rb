@@ -2,11 +2,11 @@ module RSpec
   module Hanami
     module RequestHelpers
       class Request
-        def initialize(method, path, options)
+        def initialize(method, path, opts)
           @path, @query_string = path.split('?', 2)
           @method = method
-          @params = options[:params]
-          @headers = options[:headers] || {}
+          @params = opts[:params]
+          @headers = opts[:headers] || {}
         end
 
         def env
@@ -54,27 +54,33 @@ module RSpec
       end
 
       def request(request)
+        puts request.env
         @response = ::Hanami.app.call(request.env)
       end
 
-      def get(path, options = {})
-        request(Request.new('GET', path, options))
+      def get(path, opts = {})
+        request(Request.new('GET', path, opts))
       end
 
-      def post(path, options = {})
-        request(Request.new('POST', path, options))
+      def post(path, opts = {})
+        request(Request.new('POST', path, opts))
       end
 
-      def patch(path, options = {})
-        request(Request.new('PATCH', path, options))
+      def patch(path, opts = {})
+        request(Request.new('PATCH', path, opts))
       end
 
-      def put(path, options = {})
-        request(Request.new('PUT', path, options))
+      def put(path, opts = {})
+        request(Request.new('PUT', path, opts))
       end
 
-      def delete(path, options = {})
-        request(Request.new('DELETE', path, options))
+
+      def delete(path, opts = {})
+        request(Request.new('DELETE', path, opts))
+      end
+
+      def options(path, opts = {})
+        request(Request.new('OPTIONS', path, opts))
       end
     end
   end
