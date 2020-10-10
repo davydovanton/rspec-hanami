@@ -26,7 +26,3 @@ module RSpec
     end
   end
 end
-
-# Syntactic shortcut to reference Hanami::Entity::Types in custom matchers
-#
-Types = ::Hanami::Entity::Types
